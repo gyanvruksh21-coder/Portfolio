@@ -94,7 +94,7 @@ const Contact = () => {
                   <h4 className="font-medium text-neutral-200 mb-3">Connect with me</h4>
                   <div className="flex space-x-4">
                     <motion.a
-                      href="https://linkedin.com/in/khushijoshi"
+                      href="https://www.linkedin.com/in/khushi-kalpesh-joshi-895b822a4/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="glass-card p-3 text-neutral-300 hover:text-primary-300 hover:bg-primary-900/30 transition-all duration-300"

@@ -81,7 +81,7 @@ const Hero = () => {
               <FiGithub size={24} className="group-hover:rotate-12 transition-transform duration-300" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/khushijoshi"
+              href="https://www.linkedin.com/in/khushi-kalpesh-joshi-895b822a4/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-4 bg-neutral-800/20 backdrop-blur-sm rounded-full text-neutral-300 hover:text-primary-300 hover:bg-neutral-700/30 transition-all duration-300 hover:scale-110 hover:shadow-lg group focus-ring animate-float"
