@@ -40,10 +40,41 @@ const Navbar = () => {
   ];
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    console.log(`Attempting to scroll to section: ${sectionId}`);
+
+    // Add a small delay to ensure DOM is fully loaded
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        console.log(`Found element for ${sectionId}, scrolling...`);
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest'
+        });
+      } else {
+        console.warn(`Element with id "${sectionId}" not found`);
+        // Fallback: try to find by other selectors
+        const possibleSelectors = [
+          `[id="${sectionId}"]`,
+          `.${sectionId}`,
+          `#${sectionId}`
+        ];
+        possibleSelectors.forEach(selector => {
+          const fallbackElement = document.querySelector(selector);
+          if (fallbackElement && fallbackElement !== element) {
+            console.log(`Found element with selector "${selector}", scrolling...`);
+            fallbackElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+            return;
+          }
+        });
+      }
+    }, 100); // Small delay to ensure DOM is ready
+
     setIsOpen(false);
   };
 
