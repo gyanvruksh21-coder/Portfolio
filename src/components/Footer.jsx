@@ -1,5 +1,5 @@
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import { FiMail } from 'react-icons/fi';
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="mt-6 pt-6 border-t border-neutral-700 text-center md:text-left">
           <p className="text-sm text-neutral-500">
-            Built with React, Tailwind CSS, and ❤️ by Khushi Kalpesh Joshi
+            Built by Khushi Kalpesh Joshi
           </p>
         </div>
       </div>
