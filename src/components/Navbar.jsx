@@ -27,26 +27,8 @@ const Navbar = () => {
       }
     };
 
-    // Handle hash changes for navigation
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1); // Remove the '#'
-      if (hash && ['home', 'about', 'skills', 'projects', 'contact'].includes(hash)) {
-        scrollToSection(hash);
-      }
-    };
-
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('hashchange', handleHashChange);
-
-    // Check for initial hash on page load
-    if (window.location.hash) {
-      setTimeout(handleHashChange, 100);
-    }
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('hashchange', handleHashChange);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -59,13 +41,6 @@ const Navbar = () => {
 
   const scrollToSection = (sectionId) => {
     console.log(`Attempting to scroll to section: ${sectionId}`);
-
-    // Update URL hash for proper navigation state
-    if (sectionId !== 'home') {
-      window.location.hash = sectionId;
-    } else {
-      window.location.hash = '';
-    }
 
     // Add a small delay to ensure DOM is fully loaded
     setTimeout(() => {
