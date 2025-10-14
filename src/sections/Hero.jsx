@@ -18,6 +18,17 @@ const Hero = () => {
     show: { opacity: 1, y: 0 },
   };
 
+  const scrollToProjects = () => {
+    const projectsElement = document.getElementById('projects');
+    if (projectsElement) {
+      projectsElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-primary relative">
       {/* Subtle particle background */}
@@ -103,14 +114,14 @@ const Hero = () => {
           </motion.div>
 
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.a
-              href="/#projects"
+            <motion.button
+              onClick={scrollToProjects}
               className="btn btn-primary w-full sm:w-auto text-lg px-8 py-4 hover-lift focus-ring animate-slide-in-scale"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               View Projects
-            </motion.a>
+            </motion.button>
             <motion.a
               href="/resume.pdf"
               download
