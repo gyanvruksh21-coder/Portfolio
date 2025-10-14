@@ -156,13 +156,13 @@ const About = () => {
                 transition={{ delay: 0.8 }}
               >
                 <a
-                  href="#projects"
+                  href="/#projects"
                   className="btn btn-primary hover-lift focus-ring"
                 >
                   View My Work
                 </a>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="btn btn-outline hover-lift focus-ring"
                 >
                   Get In Touch

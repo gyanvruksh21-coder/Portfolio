@@ -32,11 +32,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: '#home', id: 'home' },
-    { name: 'About', to: '#about', id: 'about' },
-    { name: 'Skills', to: '#skills', id: 'skills' },
-    { name: 'Projects', to: '#projects', id: 'projects' },
-    { name: 'Contact', to: '#contact', id: 'contact' },
+    { name: 'Home', to: '/', id: 'home' },
+    { name: 'About', to: '/#about', id: 'about' },
+    { name: 'Skills', to: '/#skills', id: 'skills' },
+    { name: 'Projects', to: '/#projects', id: 'projects' },
+    { name: 'Contact', to: '/#contact', id: 'contact' },
   ];
 
   const scrollToSection = (sectionId) => {

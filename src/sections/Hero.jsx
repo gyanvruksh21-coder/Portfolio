@@ -104,7 +104,7 @@ const Hero = () => {
 
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <motion.a
-              href="#projects"
+              href="/#projects"
               className="btn btn-primary w-full sm:w-auto text-lg px-8 py-4 hover-lift focus-ring animate-slide-in-scale"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
