@@ -425,6 +425,75 @@ a {
   @apply text-neutral-300;
 }
 
-.dark .text-neutral-600 {
-  @apply text-neutral-400;
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Reduce motion for better performance on mobile */
+  .animate-float {
+    animation-duration: 12s;
+  }
+
+  .animate-pulse-gentle {
+    animation-duration: 6s;
+  }
+
+  /* Touch-friendly button sizes */
+  .btn {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Improve touch targets */
+  button, a, [role="button"] {
+    @apply min-h-[44px];
+  }
+
+  /* Reduce parallax intensity on mobile */
+  .particle-bg {
+    opacity: 0.3;
+  }
+
+  /* Optimize animations for mobile */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders and shadows for retina displays */
+  .glass-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Focus visible improvements for accessibility */
+.focus-ring:focus-visible {
+  @apply ring-4 ring-primary-400 ring-offset-2 ring-offset-neutral-900 outline-none;
+}
+
+/* Improved reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-gentle,
+  .animate-bounce-gentle,
+  .animate-glow-pulse {
+    animation: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  .hover-scale:hover {
+    transform: none;
+  }
+}
+
+/* Loading optimization */
+.loading-shimmer {
+  @apply animate-pulse bg-gradient-to-r from-neutral-700 via-neutral-600 to-neutral-700 bg-[length:200%_100%];
+  animation: shimmer 2s infinite;
 }

@@ -1,0 +1,405 @@
+/* Terminal Interface Styles */
+.terminal-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 255, 0, 0.1);
+}
+
+.terminal-header {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27ca3f; }
+
+.terminal-title {
+  color: #00ff00;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.terminal-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+}
+
+.terminal-output {
+  margin-bottom: 20px;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+  padding: 2px 0;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.terminal-line.input {
+  color: #ffffff;
+}
+
+.terminal-line.error {
+  color: #ff4444;
+}
+
+.terminal-line.success {
+  color: #00ff00;
+}
+
+.terminal-line.system {
+  color: #888;
+}
+
+.prompt {
+  color: #00ff00;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #00ff00;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  caret-color: #00ff00;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+  color: #00ff00;
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Boot screen */
+.terminal-boot {
+  text-align: center;
+  position: relative;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff00, transparent);
+  animation: scan 2s infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+.boot-text {
+  padding: 40px 20px;
+}
+
+/* Data nodes */
+.data-node {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: pulse 3s infinite;
+}
+
+.data-node:nth-child(1) { animation-delay: 0s; }
+.data-node:nth-child(2) { animation-delay: 1s; }
+.data-node:nth-child(3) { animation-delay: 2s; }
+.data-node:nth-child(4) { animation-delay: 3s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Hacker mode */
+.hacker-mode {
+  animation: glitch 0.3s;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Terminal views */
+.terminal-view {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.welcome-message {
+  text-align: center;
+}
+
+.quick-commands {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(0, 255, 0, 0.1);
+  border-radius: 4px;
+}
+
+.command-suggestion {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+.command-text {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+/* Data cards */
+.data-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.json-view pre {
+  color: #00ff00;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.project-cards {
+  display: grid;
+  gap: 10px;
+}
+
+.project-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.project-name {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.status-badge.featured {
+  color: #ffaa00;
+  font-size: 16px;
+}
+
+.project-tech {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.terminal-btn {
+  background: #333;
+  border: 1px solid #555;
+  color: #00ff00;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.terminal-btn:hover {
+  background: #00ff00;
+  color: #000;
+}
+
+/* Skills */
+.skills-visualization {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.skill-category {
+  margin-bottom: 15px;
+}
+
+.category-title {
+  color: #00ff00;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.skill-bars {
+  display: grid;
+  gap: 8px;
+}
+
+.skill-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-name {
+  min-width: 120px;
+  color: #cccccc;
+  font-size: 12px;
+}
+
+.bar-container {
+  flex: 1;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #00ff00, #00aa00);
+  transition: width 1s ease-out;
+}
+
+/* Contact */
+.contact-interface {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.contact-methods {
+  display: grid;
+  gap: 15px;
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+  border-color: #00ff00;
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.method-title {
+  color: #00ff00;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.method-value {
+  color: #cccccc;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .terminal-container {
+    margin: 10px;
+    height: calc(100vh - 20px);
+  }
+
+  .terminal-body {
+    padding: 15px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-cards {
+    grid-template-columns: 1fr;
+  }
+}
