@@ -1,15 +1,20 @@
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { FiMail, FiMapPin, FiPhone } from "react-icons/fi";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Contact = () => {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
   const onSubmit = (data) => {
-    console.log('Form submitted:', data);
+    console.log("Form submitted:", data);
     // Here you would typically send the form data to your backend
-    alert('Thank you for your message! I will get back to you soon.');
+    alert("Thank you for your message! I will get back to you soon.");
     reset();
   };
 
@@ -31,7 +36,9 @@ const Contact = () => {
             transition={{ delay: 0.2 }}
           >
             <span className="relative inline-block">
-              <span className="relative z-10 text-neutral-100">Get In Touch</span>
+              <span className="relative z-10 text-neutral-100">
+                Get In Touch
+              </span>
               <span className="absolute bottom-2 left-0 w-full h-4 bg-primary-900/50 -z-0"></span>
             </span>
           </motion.h2>
@@ -42,7 +49,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Have a question or want to work together? Feel free to reach out to me. I'll get back to you as soon as possible!
+            Have a question or want to work together? Feel free to reach out to
+            me. I'll get back to you as soon as possible!
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-12">
@@ -52,7 +60,9 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              <h3 className="text-2xl font-bold text-neutral-100 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold text-neutral-100 mb-6">
+                Contact Information
+              </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start group hover-lift">
@@ -60,7 +70,9 @@ const Contact = () => {
                     <FiMail size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-neutral-200 mb-1">Email Me</h4>
+                    <h4 className="font-medium text-neutral-200 mb-1">
+                      Email Me
+                    </h4>
                     <a
                       href="mailto:khushijoshi.amcec@gmail.com"
                       className="text-neutral-400 hover:text-primary-400 transition-colors duration-300"
@@ -75,8 +87,12 @@ const Contact = () => {
                     <FiMapPin size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-neutral-200 mb-1">Location</h4>
-                    <p className="text-neutral-400">Bengaluru, Karnataka, India</p>
+                    <h4 className="font-medium text-neutral-200 mb-1">
+                      Location
+                    </h4>
+                    <p className="text-neutral-400">
+                      Bengaluru, Karnataka, India
+                    </p>
                   </div>
                 </div>
 
@@ -86,12 +102,14 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-neutral-200 mb-1">Phone</h4>
-                    <p className="text-neutral-400">+91 XXXXXXXXXX</p>
+                    <p className="text-neutral-400">+91-8884156247</p>
                   </div>
                 </div>
 
                 <div className="pt-4">
-                  <h4 className="font-medium text-neutral-200 mb-3">Connect with me</h4>
+                  <h4 className="font-medium text-neutral-200 mb-3">
+                    Connect with me
+                  </h4>
                   <div className="flex space-x-4">
                     <motion.a
                       href="https://www.linkedin.com/in/khushi-kalpesh-joshi-895b822a4/"
@@ -105,7 +123,7 @@ const Contact = () => {
                       <FaLinkedin size={20} />
                     </motion.a>
                     <motion.a
-                      href="https://github.com/khushijoshi"
+                      href="https://github.com/Khush2803"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="glass-card p-3 text-neutral-300 hover:text-primary-300 hover:bg-primary-900/30 transition-all duration-300"
@@ -127,79 +145,101 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
             >
-              <h3 className="text-2xl font-bold text-neutral-100 mb-6">Send Me a Message</h3>
+              <h3 className="text-2xl font-bold text-neutral-100 mb-6">
+                Send Me a Message
+              </h3>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-neutral-300 mb-1"
+                  >
                     Name <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="text"
                     id="name"
-                    {...register('name', { required: 'Name is required' })}
+                    {...register("name", { required: "Name is required" })}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 transition-all duration-300 bg-neutral-800 text-neutral-200 ${
-                      errors.name ? 'border-red-400' : 'border-neutral-600'
+                      errors.name ? "border-red-400" : "border-neutral-600"
                     }`}
                     placeholder="Your name"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                    <p className="mt-1 text-sm text-red-400">
+                      {errors.name.message}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-neutral-300 mb-1"
+                  >
                     Email <span className="text-red-400">*</span>
                   </label>
                   <input
                     type="email"
                     id="email"
-                    {...register('email', {
-                      required: 'Email is required',
+                    {...register("email", {
+                      required: "Email is required",
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address',
+                        message: "Invalid email address",
                       },
                     })}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 transition-all duration-300 bg-neutral-800 text-neutral-200 ${
-                      errors.email ? 'border-red-400' : 'border-neutral-600'
+                      errors.email ? "border-red-400" : "border-neutral-600"
                     }`}
                     placeholder="your.email@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                    <p className="mt-1 text-sm text-red-400">
+                      {errors.email.message}
+                    </p>
                   )}
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-1">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-neutral-300 mb-1"
+                  >
                     Subject
                   </label>
                   <input
                     type="text"
                     id="subject"
-                    {...register('subject')}
+                    {...register("subject")}
                     className="w-full px-4 py-3 border border-neutral-600 rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 transition-all duration-300 bg-neutral-800 text-neutral-200"
                     placeholder="Subject"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-neutral-300 mb-1"
+                  >
                     Message <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     id="message"
                     rows="4"
-                    {...register('message', { required: 'Message is required' })}
+                    {...register("message", {
+                      required: "Message is required",
+                    })}
                     className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-primary-400 focus:border-primary-400 transition-all duration-300 bg-neutral-800 text-neutral-200 ${
-                      errors.message ? 'border-red-400' : 'border-neutral-600'
+                      errors.message ? "border-red-400" : "border-neutral-600"
                     }`}
                     placeholder="Your message here..."
                   ></textarea>
                   {errors.message && (
-                    <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+                    <p className="mt-1 text-sm text-red-400">
+                      {errors.message.message}
+                    </p>
                   )}
                 </div>
 

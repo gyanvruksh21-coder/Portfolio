@@ -1,13 +1,19 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowDown } from 'react-icons/fi';
-import { useEffect, useState } from 'react';
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiMail,
+  FiDownload,
+  FiArrowDown,
+} from "react-icons/fi";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -21,8 +27,8 @@ const Hero = () => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const container = {
@@ -42,18 +48,21 @@ const Hero = () => {
   };
 
   const scrollToProjects = () => {
-    const projectsElement = document.getElementById('projects');
+    const projectsElement = document.getElementById("projects");
     if (projectsElement) {
       projectsElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest'
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
       });
     }
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-primary relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center bg-gradient-primary relative overflow-hidden"
+    >
       {/* Enhanced particle background with parallax */}
       <motion.div
         className="particle-bg"
@@ -94,7 +103,12 @@ const Hero = () => {
             className="mb-8 relative"
             initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ delay: 0.2, duration: 0.8, type: "spring", stiffness: 100 }}
+            transition={{
+              delay: 0.2,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 100,
+            }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
           >
@@ -108,7 +122,7 @@ const Hero = () => {
                 transition={{
                   duration: 4,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               >
                 👋
@@ -151,10 +165,7 @@ const Hero = () => {
             </motion.span>
           </motion.h1>
 
-          <motion.div
-            className="mb-6"
-            variants={item}
-          >
+          <motion.div className="mb-6" variants={item}>
             <motion.p
               className="text-xl md:text-2xl lg:text-3xl text-body text-neutral-300 mb-2 font-medium"
               animate={{
@@ -204,9 +215,21 @@ const Hero = () => {
             variants={item}
           >
             {[
-              { Icon: FiGithub, href: "https://github.com/khushijoshi", label: "GitHub" },
-              { Icon: FiLinkedin, href: "https://www.linkedin.com/in/khushi-kalpesh-joshi-895b822a4/", label: "LinkedIn" },
-              { Icon: FiMail, href: "mailto:khushijoshi.amcec@gmail.com", label: "Email" }
+              {
+                Icon: FiGithub,
+                href: "https://github.com/Khush2803",
+                label: "GitHub",
+              },
+              {
+                Icon: FiLinkedin,
+                href: "https://www.linkedin.com/in/khushi-kalpesh-joshi-895b822a4/",
+                label: "LinkedIn",
+              },
+              {
+                Icon: FiMail,
+                href: "mailto:khushijoshi.amcec@gmail.com",
+                label: "Email",
+              },
             ].map(({ Icon, href, label }, index) => (
               <motion.a
                 key={label}
@@ -218,7 +241,7 @@ const Hero = () => {
                 whileHover={{
                   scale: 1.2,
                   rotate: [0, -5, 5, 0],
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -227,7 +250,10 @@ const Hero = () => {
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
               >
-                <Icon size={24} className="group-hover:rotate-12 transition-transform duration-300" />
+                <Icon
+                  size={24}
+                  className="group-hover:rotate-12 transition-transform duration-300"
+                />
                 <motion.div
                   className="absolute inset-0 rounded-full bg-primary-500/20 scale-0 group-hover:scale-150 transition-transform duration-300"
                   layoutId={`glow-${index}`}
@@ -236,14 +262,17 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div
+            variants={item}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
             <motion.button
               onClick={scrollToProjects}
               className="btn btn-primary w-full sm:w-auto text-lg px-8 py-4 hover-lift focus-ring animate-slide-in-scale group relative overflow-hidden"
               whileHover={{
                 scale: 1.05,
                 y: -2,
-                boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)"
+                boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)",
               }}
               whileTap={{ scale: 0.95 }}
               onHoverStart={() => setIsHovered(true)}
@@ -262,7 +291,7 @@ const Hero = () => {
               whileHover={{
                 scale: 1.05,
                 y: -2,
-                boxShadow: "0 10px 30px rgba(99, 102, 241, 0.3)"
+                boxShadow: "0 10px 30px rgba(99, 102, 241, 0.3)",
               }}
               whileTap={{ scale: 0.95 }}
               onHoverStart={() => setIsHovered(true)}
@@ -285,7 +314,7 @@ const Hero = () => {
             whileHover={{
               scale: 1.2,
               borderColor: "#a5b4fc",
-              boxShadow: "0 0 20px rgba(165, 180, 252, 0.3)"
+              boxShadow: "0 0 20px rgba(165, 180, 252, 0.3)",
             }}
             animate={{
               y: [0, 10, 0],
@@ -293,7 +322,7 @@ const Hero = () => {
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
             onClick={scrollToProjects}
           >

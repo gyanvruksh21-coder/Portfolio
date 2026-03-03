@@ -1,76 +1,212 @@
-import { motion } from 'framer-motion';
-import { FiGithub, FiExternalLink, FiBarChart, FiShoppingCart, FiHeart, FiTrendingUp, FiStar, FiEye, FiLayers } from 'react-icons/fi';
-import { useState } from 'react';
-import ProjectModal from '../components/ProjectModal';
+import { motion } from "framer-motion";
+import {
+  FiGithub,
+  FiExternalLink,
+  FiBarChart,
+  FiShoppingCart,
+  FiHeart,
+  FiTrendingUp,
+  FiStar,
+  FiEye,
+  FiLayers,
+  FiCloud,
+  FiPenTool,
+  FiFilm,
+  FiShield,
+  FiGitBranch,
+} from "react-icons/fi";
+import { useState } from "react";
+import ProjectModal from "../components/ProjectModal";
 
 const projects = [
   {
     id: 1,
-    title: "Health Checkup Web App",
-    description: "A comprehensive health monitoring application that tracks vital signs, provides personalized health recommendations, and generates detailed health reports using data analysis and visualization. Built with modern web technologies, this application helps users monitor their health metrics over time and provides actionable insights for better wellness decisions.",
-    technologies: ["Python", "Data Analysis", "Matplotlib", "Pandas", "Streamlit", "Machine Learning", "Data Visualization"],
-    icon: <FiHeart className="text-primary-400 text-3xl" />,
-    github: "https://github.com/khushijoshi/health-checkup-app",
-    demo: "https://health-checkup-demo.example.com",
+    title: "CarbonDrop",
+    description:
+      "A full-stack web application that calculates carbon footprints from real-world documents such as receipts and utility bills using OCR. Contributed to FastAPI backend services and SQL databases to process, store, and analyze emissions data with interactive dashboards.",
+    technologies: [
+      "FastAPI",
+      "React",
+      "OCR (Tesseract)",
+      "SQL",
+      "Chart.js",
+      "Data Analysis",
+    ],
+    icon: <FiCloud className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803/CarbonDrop.git",
+    demo: null,
     featured: true,
-    category: "Healthcare & Data Science",
+    category: "Open Source - Carbon Footprint",
     highlights: [
-      "Real-time health data visualization",
-      "Personalized health recommendations",
-      "Machine learning-powered insights",
-      "Interactive dashboard interface"
-    ]
+      "OCR-powered document processing",
+      "FastAPI backend with SQL database",
+      "Interactive emission dashboards",
+      "Real-world utility bill analysis",
+    ],
   },
   {
     id: 2,
     title: "Krochet Freelance Store",
-    description: "An e-commerce platform for handmade crochet products featuring a modern design, secure payment integration, and an intuitive shopping experience. This platform showcases unique handmade items and provides a seamless shopping experience for customers looking for artisanal products.",
-    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "PHP", "MySQL", "Payment Gateway"],
+    description:
+      "A responsive e-commerce website designed and developed for a local crochet fashion brand. Features product displays, cart functionality, and mobile-friendly navigation aligned with brand identity.",
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap", "E-commerce"],
     icon: <FiShoppingCart className="text-primary-400 text-3xl" />,
-    github: "https://github.com/khushijoshi/krochet-store",
-    demo: "https://krochet-store-demo.example.com",
+    github: "https://github.com/Khush2803",
+    demo: null,
     featured: true,
     category: "E-commerce & Web Development",
     highlights: [
       "Responsive design for all devices",
-      "Secure payment processing",
-      "Inventory management system",
-      "Customer review system"
-    ]
+      "Product cart functionality",
+      "Mobile-friendly navigation",
+      "Client-aligned brand identity",
+    ],
   },
   {
     id: 3,
-    title: "Stock Market Sentiment Analyzer",
-    description: "A machine learning application that analyzes social media sentiment and news articles to predict stock market trends and provide investment insights. This tool uses natural language processing and sentiment analysis to help investors make more informed decisions based on market sentiment.",
-    technologies: ["Python", "NLP", "Scikit-learn", "Twitter API", "React", "TensorFlow", "Financial APIs"],
-    icon: <FiTrendingUp className="text-primary-400 text-3xl" />,
-    github: "https://github.com/khushijoshi/stock-sentiment",
-    demo: "https://stock-sentiment-demo.example.com",
-    featured: false,
-    category: "Machine Learning & Finance",
+    title: "Health Checkup Web Application",
+    description:
+      "A web-based tool to assess emotional and mental health using structured user inputs. Implements backend sentiment and scoring logic using Python with Matplotlib visualizations.",
+    technologies: [
+      "Python",
+      "HTML",
+      "CSS",
+      "Data Analysis",
+      "Matplotlib",
+      "Sentiment Analysis",
+    ],
+    icon: <FiHeart className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803",
+    demo: null,
+    featured: true,
+    category: "Healthcare & Data Science",
     highlights: [
-      "Real-time sentiment analysis",
-      "Market trend prediction",
-      "Social media integration",
-      "Interactive visualization dashboard"
-    ]
+      "Mental health assessment tool",
+      "Python sentiment scoring logic",
+      "Matplotlib health trend visualizations",
+      "User-friendly interface design",
+    ],
   },
   {
     id: 4,
-    title: "Customer Analytics Dashboard",
-    description: "An interactive dashboard for businesses to analyze customer behavior, purchase patterns, and market trends using advanced data visualization techniques. This comprehensive analytics tool helps businesses understand their customer base and make data-driven decisions.",
-    technologies: ["Python", "Tableau", "SQL", "Pandas", "Seaborn", "Power BI", "Business Intelligence"],
+    title: "Skribble",
+    description:
+      "A browser-based interactive drawing and word-guessing game with canvas-based drawing functionality and real-time user interaction. Features responsive UI components for enhanced gameplay.",
+    technologies: ["HTML", "CSS", "JavaScript", "Canvas API", "Real-time"],
+    icon: <FiPenTool className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803/skribble-",
+    demo: null,
+    featured: false,
+    category: "Interactive Web Game",
+    highlights: [
+      "Canvas-based drawing functionality",
+      "Real-time user interaction",
+      "Responsive UI components",
+      "Interactive gameplay experience",
+    ],
+  },
+  {
+    id: 5,
+    title: "Movie Recommendation System",
+    description:
+      "A content-based recommendation engine using TF-IDF vectorization and cosine similarity. Built an interactive Streamlit UI for personalized movie suggestions based on user preferences.",
+    technologies: ["Python", "TF-IDF", "Streamlit", "NLP", "scikit-learn"],
+    icon: <FiFilm className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803",
+    demo: null,
+    featured: false,
+    category: "Machine Learning & NLP",
+    highlights: [
+      "TF-IDF content-based filtering",
+      "Interactive Streamlit UI",
+      "Personalized movie suggestions",
+      "Cosine similarity matching",
+    ],
+  },
+  {
+    id: 6,
+    title: "Email Phishing Detection System",
+    description:
+      "A machine learning model to classify and detect phishing emails. Performed data preprocessing, feature engineering, and model evaluation with Seaborn visualizations.",
+    technologies: [
+      "Python",
+      "Pandas",
+      "scikit-learn",
+      "Seaborn",
+      "NLP",
+      "Classification",
+    ],
+    icon: <FiShield className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803",
+    demo: null,
+    featured: false,
+    category: "Cybersecurity & ML",
+    highlights: [
+      "Phishing email classification",
+      "Feature engineering pipeline",
+      "Seaborn performance visualization",
+      "Model evaluation metrics",
+    ],
+  },
+  {
+    id: 7,
+    title: "Iris Flower Classification",
+    description:
+      "A supervised machine learning model to classify iris flower species. Applied data preprocessing, train-test splitting, and model evaluation techniques using scikit-learn.",
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "scikit-learn",
+      "Classification",
+    ],
+    icon: <FiGitBranch className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803",
+    demo: null,
+    featured: false,
+    category: "Machine Learning",
+    highlights: [
+      "Supervised classification model",
+      "Iris species prediction",
+      "Train-test validation",
+      "Scikit-learn implementation",
+    ],
+  },
+  {
+    id: 8,
+    title: "Unemployment Rate Analysis",
+    description:
+      "Analyzed unemployment rate datasets to identify trends across regions and time periods. Performed data cleaning and exploratory data analysis using Pandas, Matplotlib, and Seaborn.",
+    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn", "EDA"],
+    icon: <FiTrendingUp className="text-primary-400 text-3xl" />,
+    github: "https://github.com/Khush2803/Unemployment-analysis.git",
+    demo: null,
+    featured: false,
+    category: "Data Analysis",
+    highlights: [
+      "Regional trend identification",
+      "Time series analysis",
+      "Data cleaning & preprocessing",
+      "Statistical visualizations",
+    ],
+  },
+  {
+    id: 9,
+    title: "Sales Data Analysis",
+    description:
+      "Conducted exploratory data analysis on sales datasets to uncover purchasing patterns and revenue trends. Created visual reports using Matplotlib to support data-driven decision making.",
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "EDA"],
     icon: <FiBarChart className="text-primary-400 text-3xl" />,
-    github: "https://github.com/khushijoshi/customer-analytics",
-    demo: "https://analytics-dashboard-demo.example.com",
+    github: "https://github.com/Khush2803",
+    demo: null,
     featured: false,
     category: "Business Intelligence",
     highlights: [
-      "Customer segmentation analysis",
-      "Purchase behavior insights",
-      "Market trend identification",
-      "Interactive data visualizations"
-    ]
+      "Purchasing pattern analysis",
+      "Revenue trend visualization",
+      "Data-driven insights",
+      "Business reporting",
+    ],
   },
 ];
 
@@ -78,8 +214,8 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
+  const featuredProjects = projects.filter((project) => project.featured);
+  const otherProjects = projects.filter((project) => !project.featured);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -100,13 +236,13 @@ const Projects = () => {
   const openModal = (project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
 
   return (
@@ -123,12 +259,16 @@ const Projects = () => {
             <motion.div variants={itemVariants} className="text-center mb-16">
               <motion.h2 className="text-4xl md:text-5xl lg:text-6xl text-heading font-bold mb-6">
                 <span className="relative inline-block">
-                  <span className="relative z-10 text-neutral-100">Featured Projects</span>
+                  <span className="relative z-10 text-neutral-100">
+                    Featured Projects
+                  </span>
                   <span className="absolute bottom-2 left-0 w-full h-4 bg-primary-900/50 -z-0"></span>
                 </span>
               </motion.h2>
               <motion.p className="text-lg md:text-xl text-body text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-                Here are some of my recent projects that showcase my skills in data science, web development, and problem-solving. Click on any project to learn more!
+                Here are some of my recent projects that showcase my skills in
+                data science, web development, and problem-solving. Click on any
+                project to learn more!
               </motion.p>
             </motion.div>
 
@@ -219,7 +359,9 @@ const Projects = () => {
                         whileHover={{ scale: 1.1 }}
                       >
                         <FiEye className="mr-2" size={16} />
-                        <span className="text-sm font-medium">View Details</span>
+                        <span className="text-sm font-medium">
+                          View Details
+                        </span>
                       </motion.button>
                     </div>
 
@@ -343,7 +485,7 @@ const Projects = () => {
               className="text-center mt-12"
             >
               <motion.a
-                href="https://github.com/khushijoshi"
+                href="https://github.com/Khush2803"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-outline hover-lift focus-ring"

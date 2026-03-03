@@ -1,14 +1,31 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaPython, FaReact, FaDatabase, FaChartLine, FaGitAlt, FaCode, FaHtml5, FaNodeJs } from 'react-icons/fa';
-import { SiTensorflow, SiPytorch, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql, SiDocker } from 'react-icons/si';
-import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  FaPython,
+  FaReact,
+  FaDatabase,
+  FaChartLine,
+  FaGitAlt,
+  FaCode,
+  FaHtml5,
+  FaNodeJs,
+} from "react-icons/fa";
+import {
+  SiTensorflow,
+  SiPytorch,
+  SiJavascript,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiDocker,
+} from "react-icons/si";
+import { useState, useEffect } from "react";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
   const { scrollYProgress } = useScroll({
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -19,10 +36,10 @@ const Skills = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    const section = document.getElementById('skills');
+    const section = document.getElementById("skills");
     if (section) {
       observer.observe(section);
     }
@@ -32,56 +49,172 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      category: 'Programming Languages',
+      category: "Programming Languages",
       icon: <FaCode className="text-primary-400 text-2xl" />,
-      color: 'from-blue-500 to-cyan-500',
+      color: "from-blue-500 to-cyan-500",
       items: [
-        { name: 'Python', level: 90, icon: <FaPython className="text-blue-400" />, color: 'bg-blue-400' },
-        { name: 'JavaScript', level: 80, icon: <SiJavascript className="text-yellow-400" />, color: 'bg-yellow-400' },
-        { name: 'HTML/CSS', level: 90, icon: <FaHtml5 className="text-orange-500" />, color: 'bg-orange-500' },
+        {
+          name: "Python",
+          level: 90,
+          icon: <FaPython className="text-blue-400" />,
+          color: "bg-blue-400",
+        },
+        {
+          name: "Java",
+          level: 75,
+          icon: <FaCode className="text-red-400" />,
+          color: "bg-red-400",
+        },
+        {
+          name: "C",
+          level: 70,
+          icon: <FaCode className="text-purple-400" />,
+          color: "bg-purple-400",
+        },
+        {
+          name: "JavaScript",
+          level: 80,
+          icon: <SiJavascript className="text-yellow-400" />,
+          color: "bg-yellow-400",
+        },
       ],
     },
     {
-      category: 'Frameworks & Libraries',
+      category: "Web Development",
       icon: <FaReact className="text-primary-400 text-2xl" />,
-      color: 'from-cyan-500 to-blue-500',
+      color: "from-cyan-500 to-blue-500",
       items: [
-        { name: 'React', level: 85, icon: <FaReact className="text-cyan-400" />, color: 'bg-cyan-400' },
-        { name: 'Node.js', level: 75, icon: <FaNodeJs className="text-green-500" />, color: 'bg-green-500' },
-        { name: 'Tailwind CSS', level: 85, icon: <SiTailwindcss className="text-teal-400" />, color: 'bg-teal-400' },
+        {
+          name: "HTML/CSS",
+          level: 90,
+          icon: <FaHtml5 className="text-orange-500" />,
+          color: "bg-orange-500",
+        },
+        {
+          name: "JavaScript",
+          level: 80,
+          icon: <SiJavascript className="text-yellow-400" />,
+          color: "bg-yellow-400",
+        },
+        {
+          name: "Bootstrap",
+          level: 85,
+          icon: <FaCode className="text-purple-500" />,
+          color: "bg-purple-500",
+        },
+        {
+          name: "React",
+          level: 75,
+          icon: <FaReact className="text-cyan-400" />,
+          color: "bg-cyan-400",
+        },
       ],
     },
     {
-      category: 'Data Science & ML',
+      category: "Data Science & ML",
       icon: <FaChartLine className="text-primary-400 text-2xl" />,
-      color: 'from-purple-500 to-pink-500',
+      color: "from-purple-500 to-pink-500",
       items: [
-        { name: 'Pandas', level: 85, icon: <FaPython className="text-blue-400" />, color: 'bg-blue-400' },
-        { name: 'TensorFlow', level: 75, icon: <SiTensorflow className="text-orange-400" />, color: 'bg-orange-400' },
-        { name: 'PyTorch', level: 70, icon: <SiPytorch className="text-red-400" />, color: 'bg-red-400' },
+        {
+          name: "Pandas",
+          level: 85,
+          icon: <FaPython className="text-blue-400" />,
+          color: "bg-blue-400",
+        },
+        {
+          name: "NumPy",
+          level: 80,
+          icon: <FaPython className="text-blue-500" />,
+          color: "bg-blue-500",
+        },
+        {
+          name: "Scikit-learn",
+          level: 70,
+          icon: <FaChartLine className="text-orange-400" />,
+          color: "bg-orange-400",
+        },
+        {
+          name: "Matplotlib",
+          level: 80,
+          icon: <FaPython className="text-green-400" />,
+          color: "bg-green-400",
+        },
       ],
     },
     {
-      category: 'Database & Tools',
+      category: "Frameworks & Tools",
       icon: <FaDatabase className="text-primary-400 text-2xl" />,
-      color: 'from-green-500 to-emerald-500',
+      color: "from-green-500 to-emerald-500",
       items: [
-        { name: 'MongoDB', level: 75, icon: <SiMongodb className="text-green-500" />, color: 'bg-green-500' },
-        { name: 'PostgreSQL', level: 80, icon: <SiPostgresql className="text-blue-600" />, color: 'bg-blue-600' },
-        { name: 'Git', level: 85, icon: <FaGitAlt className="text-red-500" />, color: 'bg-red-500' },
+        {
+          name: "Flask",
+          level: 65,
+          icon: <FaCode className="text-green-500" />,
+          color: "bg-green-500",
+        },
+        {
+          name: "SQL",
+          level: 70,
+          icon: <SiPostgresql className="text-blue-600" />,
+          color: "bg-blue-600",
+        },
+        {
+          name: "Git",
+          level: 85,
+          icon: <FaGitAlt className="text-red-500" />,
+          color: "bg-red-500",
+        },
+        {
+          name: "VS Code / Jupyter",
+          level: 90,
+          icon: <FaCode className="text-blue-400" />,
+          color: "bg-blue-400",
+        },
       ],
     },
   ];
 
   const technologies = [
-    { name: 'Python', icon: <FaPython className="text-5xl text-blue-400" />, color: 'hover:text-blue-300' },
-    { name: 'React', icon: <FaReact className="text-5xl text-cyan-400" />, color: 'hover:text-cyan-300' },
-    { name: 'TensorFlow', icon: <SiTensorflow className="text-5xl text-orange-400" />, color: 'hover:text-orange-300' },
-    { name: 'JavaScript', icon: <SiJavascript className="text-5xl text-yellow-400" />, color: 'hover:text-yellow-300' },
-    { name: 'Node.js', icon: <FaNodeJs className="text-5xl text-green-500" />, color: 'hover:text-green-300' },
-    { name: 'MongoDB', icon: <SiMongodb className="text-5xl text-green-500" />, color: 'hover:text-green-300' },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-5xl text-teal-400" />, color: 'hover:text-teal-300' },
-    { name: 'Docker', icon: <SiDocker className="text-5xl text-blue-500" />, color: 'hover:text-blue-300' },
+    {
+      name: "Python",
+      icon: <FaPython className="text-5xl text-blue-400" />,
+      color: "hover:text-blue-300",
+    },
+    {
+      name: "React",
+      icon: <FaReact className="text-5xl text-cyan-400" />,
+      color: "hover:text-cyan-300",
+    },
+    {
+      name: "FastAPI",
+      icon: <FaCode className="text-5xl text-teal-400" />,
+      color: "hover:text-teal-300",
+    },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript className="text-5xl text-yellow-400" />,
+      color: "hover:text-yellow-300",
+    },
+    {
+      name: "HTML/CSS",
+      icon: <FaHtml5 className="text-5xl text-orange-500" />,
+      color: "hover:text-orange-300",
+    },
+    {
+      name: "Flask",
+      icon: <FaCode className="text-5xl text-green-500" />,
+      color: "hover:text-green-300",
+    },
+    {
+      name: "SQL",
+      icon: <SiPostgresql className="text-5xl text-blue-600" />,
+      color: "hover:text-blue-400",
+    },
+    {
+      name: "Git",
+      icon: <FaGitAlt className="text-5xl text-red-500" />,
+      color: "hover:text-red-300",
+    },
   ];
 
   const containerVariants = {
@@ -101,7 +234,10 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="section-padding bg-neutral-900 relative overflow-hidden">
+    <section
+      id="skills"
+      className="section-padding bg-neutral-900 relative overflow-hidden"
+    >
       {/* Animated background */}
       <motion.div
         className="absolute inset-0 opacity-20"
@@ -144,7 +280,8 @@ const Skills = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Here are the technologies and tools I work with. I'm always eager to learn new technologies and expand my skill set.
+            Here are the technologies and tools I work with. I'm always eager to
+            learn new technologies and expand my skill set.
           </motion.p>
         </motion.div>
 
@@ -160,7 +297,7 @@ const Skills = () => {
               className="glass-card p-6 group hover-lift hover:scale-105 relative overflow-hidden"
               whileHover={{
                 y: -5,
-                boxShadow: "0 15px 40px rgba(99, 102, 241, 0.15)"
+                boxShadow: "0 15px 40px rgba(99, 102, 241, 0.15)",
               }}
             >
               {/* Background gradient overlay */}
@@ -176,12 +313,12 @@ const Skills = () => {
                 >
                   <motion.div
                     animate={{
-                      rotate: [0, 5, -5, 0]
+                      rotate: [0, 5, -5, 0],
                     }}
                     transition={{
                       duration: 4,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   >
                     {category.icon}
@@ -200,7 +337,9 @@ const Skills = () => {
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                    transition={{
+                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
+                    }}
                   >
                     <div className="flex justify-between items-center">
                       <motion.div
@@ -220,9 +359,13 @@ const Skills = () => {
                       <motion.span
                         className="text-sm font-semibold text-primary-400"
                         animate={{
-                          opacity: hoveredSkill === skill.name ? [0.7, 1, 0.7] : 1,
+                          opacity:
+                            hoveredSkill === skill.name ? [0.7, 1, 0.7] : 1,
                         }}
-                        transition={{ duration: 2, repeat: hoveredSkill === skill.name ? Infinity : 0 }}
+                        transition={{
+                          duration: 2,
+                          repeat: hoveredSkill === skill.name ? Infinity : 0,
+                        }}
                       >
                         {skill.level}%
                       </motion.span>
@@ -236,9 +379,10 @@ const Skills = () => {
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
                           transition={{
-                            delay: (categoryIndex * 0.1) + (skillIndex * 0.05) + 0.3,
+                            delay:
+                              categoryIndex * 0.1 + skillIndex * 0.05 + 0.3,
                             duration: 1.5,
-                            ease: "easeOut"
+                            ease: "easeOut",
                           }}
                           onMouseEnter={() => setHoveredSkill(skill.name)}
                           onMouseLeave={() => setHoveredSkill(null)}
@@ -246,12 +390,16 @@ const Skills = () => {
                           <motion.div
                             className="absolute inset-0 bg-white/20"
                             animate={{
-                              x: hoveredSkill === skill.name ? ["0%", "100%", "0%"] : "0%",
+                              x:
+                                hoveredSkill === skill.name
+                                  ? ["0%", "100%", "0%"]
+                                  : "0%",
                             }}
                             transition={{
                               duration: 2,
-                              repeat: hoveredSkill === skill.name ? Infinity : 0,
-                              ease: "easeInOut"
+                              repeat:
+                                hoveredSkill === skill.name ? Infinity : 0,
+                              ease: "easeInOut",
                             }}
                           />
                         </motion.div>
@@ -266,7 +414,7 @@ const Skills = () => {
                 className="absolute top-4 right-4 w-2 h-2 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 animate={{
                   scale: [1, 1.5, 1],
-                  opacity: [0.3, 1, 0.3]
+                  opacity: [0.3, 1, 0.3],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
@@ -307,13 +455,13 @@ const Skills = () => {
                 transition={{
                   delay: 0.7 + index * 0.05,
                   type: "spring",
-                  stiffness: 200
+                  stiffness: 200,
                 }}
                 className={`flex flex-col items-center p-4 glass-card group hover-lift hover:scale-110 cursor-pointer transition-all duration-300 ${tech.color}`}
                 whileHover={{
                   y: -8,
                   boxShadow: "0 15px 40px rgba(99, 102, 241, 0.2)",
-                  transition: { type: "spring", stiffness: 300 }
+                  transition: { type: "spring", stiffness: 300 },
                 }}
                 onHoverStart={() => setHoveredSkill(tech.name)}
                 onHoverEnd={() => setHoveredSkill(null)}
@@ -325,7 +473,7 @@ const Skills = () => {
                   }}
                   transition={{
                     duration: hoveredSkill === tech.name ? 0.6 : 0.3,
-                    ease: "easeInOut"
+                    ease: "easeInOut",
                   }}
                 >
                   {tech.icon}
@@ -346,7 +494,10 @@ const Skills = () => {
                   animate={{
                     scale: hoveredSkill === tech.name ? [1, 1.05, 1] : 1,
                   }}
-                  transition={{ duration: 2, repeat: hoveredSkill === tech.name ? Infinity : 0 }}
+                  transition={{
+                    duration: 2,
+                    repeat: hoveredSkill === tech.name ? Infinity : 0,
+                  }}
                 />
               </motion.div>
             ))}
@@ -364,7 +515,7 @@ const Skills = () => {
           <motion.div
             className="inline-flex items-center space-x-2 text-neutral-400"
             animate={{
-              opacity: [0.7, 1, 0.7]
+              opacity: [0.7, 1, 0.7],
             }}
             transition={{ duration: 2, repeat: Infinity }}
           >
@@ -374,7 +525,9 @@ const Skills = () => {
             >
               <FaGitAlt className="text-primary-400" />
             </motion.div>
-            <span className="text-lg">Always learning new technologies • Always growing</span>
+            <span className="text-lg">
+              Always learning new technologies • Always growing
+            </span>
             <motion.div
               animate={{ rotate: -360 }}
               transition={{ duration: 8, repeat: Infinity, ease: "linear" }}

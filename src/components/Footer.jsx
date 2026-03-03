@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
@@ -16,7 +16,7 @@ const Footer = () => {
 
           <div className="flex space-x-6">
             <a
-              href="https://github.com/khushijoshi"
+              href="https://github.com/Khush2803"
               target="_blank"
               rel="noopener noreferrer"
               className="text-neutral-500 hover:text-primary-400 transition-all duration-300 hover:scale-110"
@@ -32,15 +32,6 @@ const Footer = () => {
               aria-label="LinkedIn"
             >
               <FaLinkedin size={20} />
-            </a>
-            <a
-              href="https://twitter.com/khushijoshi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-500 hover:text-primary-400 transition-all duration-300 hover:scale-110"
-              aria-label="Twitter"
-            >
-              <FaTwitter size={20} />
             </a>
             <a
               href="mailto:khushijoshi.amcec@gmail.com"

@@ -1,13 +1,26 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { FiAward, FiBookOpen, FiCode, FiUsers, FiMapPin, FiMail, FiCalendar, FiStar, FiHeart, FiZap } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  FiAward,
+  FiBookOpen,
+  FiCode,
+  FiUsers,
+  FiMapPin,
+  FiMail,
+  FiCalendar,
+  FiStar,
+  FiHeart,
+  FiZap,
+  FiBriefcase,
+  FiGlobe,
+} from "react-icons/fi";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
 
   const { scrollYProgress } = useScroll({
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
@@ -18,8 +31,8 @@ const About = () => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
@@ -27,10 +40,10 @@ const About = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
-    const section = document.getElementById('about');
+    const section = document.getElementById("about");
     if (section) {
       observer.observe(section);
     }
@@ -38,42 +51,103 @@ const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  const experiences = [
+    {
+      title: "Marketing & Sponsorship Team Member",
+      organization: "She Build Bangalore 2025",
+      period: "2025",
+      icon: <FiBriefcase className="text-primary-400 text-2xl" />,
+      color: "from-pink-500 to-rose-500",
+      points: [
+        "Contributed to sponsorship outreach and partnership coordination for a women-in-tech community event",
+        "Assisted in drafting sponsorship proposals and maintaining communication with potential sponsors",
+        "Supported social media promotions, branding initiatives, and event publicity strategies",
+      ],
+    },
+    {
+      title: "Volunteer Coordinator",
+      organization: "Election Commission of India - Lok Sabha Elections",
+      period: "Apr 2024",
+      icon: <FiGlobe className="text-primary-400 text-2xl" />,
+      color: "from-blue-500 to-indigo-500",
+      points: [
+        "Coordinated and managed over 50 volunteers to ensure smooth polling operations",
+        "Assisted voters, supervised logistics, and resolved on-ground issues in real time",
+      ],
+    },
+    {
+      title: "Event Organizer",
+      organization: "Student Initiatives - Bombardier Aerospace Canada",
+      period: "",
+      icon: <FiUsers className="text-primary-400 text-2xl" />,
+      color: "from-green-500 to-emerald-500",
+      points: [
+        "Led planning and execution of technical and cultural events at the school level",
+        "Managed logistics, volunteer schedules, and stakeholder communication",
+      ],
+    },
+  ];
+
   const highlights = [
     {
       icon: <FiCode className="text-primary-400 text-2xl" />,
       title: "Full Stack Development",
-      description: "Building modern web applications with React, Node.js, and cutting-edge technologies",
+      description:
+        "Building modern web applications with React, Node.js, and cutting-edge technologies",
       color: "from-blue-500 to-cyan-500",
-      delay: 0.1
+      delay: 0.1,
     },
     {
       icon: <FiBookOpen className="text-primary-400 text-2xl" />,
       title: "Data Science & Analytics",
-      description: "Transforming complex data into actionable insights using Python, ML, and statistical analysis",
+      description:
+        "Transforming complex data into actionable insights using Python, ML, and statistical analysis",
       color: "from-purple-500 to-pink-500",
-      delay: 0.2
+      delay: 0.2,
     },
     {
       icon: <FiUsers className="text-primary-400 text-2xl" />,
       title: "Leadership & Communication",
-      description: "Leading teams and organizing events, fostering collaboration and innovation",
+      description:
+        "Leading teams and organizing events, fostering collaboration and innovation",
       color: "from-green-500 to-emerald-500",
-      delay: 0.3
+      delay: 0.3,
     },
     {
       icon: <FiAward className="text-primary-400 text-2xl" />,
       title: "Problem Solving",
-      description: "Approaching challenges with analytical thinking and creative solutions",
+      description:
+        "Approaching challenges with analytical thinking and creative solutions",
       color: "from-yellow-500 to-orange-500",
-      delay: 0.4
-    }
+      delay: 0.4,
+    },
   ];
 
   const stats = [
-    { label: "Location", value: "Bengaluru, India", icon: <FiMapPin className="text-primary-400" />, delay: 0.5 },
-    { label: "Education", value: "B.E. Computer Science", icon: <FiBookOpen className="text-primary-400" />, delay: 0.6 },
-    { label: "Experience", value: "3+ Years Learning", icon: <FiCalendar className="text-primary-400" />, delay: 0.7 },
-    { label: "Focus", value: "Full Stack & Data Science", icon: <FiCode className="text-primary-400" />, delay: 0.8 }
+    {
+      label: "Location",
+      value: "Bengaluru, India",
+      icon: <FiMapPin className="text-primary-400" />,
+      delay: 0.5,
+    },
+    {
+      label: "Education",
+      value: "B.E. Computer Science (Data Science)",
+      icon: <FiBookOpen className="text-primary-400" />,
+      delay: 0.6,
+    },
+    {
+      label: "Experience",
+      value: "Open Source & Projects",
+      icon: <FiCalendar className="text-primary-400" />,
+      delay: 0.7,
+    },
+    {
+      label: "Focus",
+      value: "Data Science & Full Stack",
+      icon: <FiCode className="text-primary-400" />,
+      delay: 0.8,
+    },
   ];
 
   const containerVariants = {
@@ -93,7 +167,10 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="section-padding bg-neutral-900 relative overflow-hidden">
+    <section
+      id="about"
+      className="section-padding bg-neutral-900 relative overflow-hidden"
+    >
       {/* Animated background elements */}
       <motion.div
         className="absolute inset-0 opacity-30"
@@ -136,7 +213,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Passionate Computer Science student with a drive to innovate and solve real-world problems through technology
+            Aspiring Data Scientist with strong foundation in Python, Data
+            Structures, and Object-Oriented Programming. Hands-on experience in
+            full-stack development and data analysis, with proven leadership
+            through national volunteering and technical event organization.
           </motion.p>
         </motion.div>
 
@@ -159,13 +239,13 @@ const About = () => {
                   boxShadow: [
                     "0 0 0 0 rgba(99, 102, 241, 0.4)",
                     "0 0 0 20px rgba(99, 102, 241, 0)",
-                    "0 0 0 0 rgba(99, 102, 241, 0.4)"
-                  ]
+                    "0 0 0 0 rgba(99, 102, 241, 0.4)",
+                  ],
                 }}
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               >
                 <div className="w-full h-full bg-gradient-to-br from-primary-800/50 to-primary-700/50 flex items-center justify-center relative">
@@ -173,12 +253,12 @@ const About = () => {
                     className="text-6xl text-primary-300 font-bold"
                     animate={{
                       scale: [1, 1.1, 1],
-                      rotate: [0, 5, -5, 0]
+                      rotate: [0, 5, -5, 0],
                     }}
                     transition={{
                       duration: 4,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   >
                     KJ
@@ -189,7 +269,7 @@ const About = () => {
                     className="absolute top-4 right-4 w-3 h-3 bg-primary-400 rounded-full animate-pulse"
                     animate={{
                       y: [0, -10, 0],
-                      opacity: [0.5, 1, 0.5]
+                      opacity: [0.5, 1, 0.5],
                     }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
@@ -197,7 +277,7 @@ const About = () => {
                     className="absolute bottom-4 left-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"
                     animate={{
                       y: [0, 10, 0],
-                      opacity: [0.3, 0.8, 0.3]
+                      opacity: [0.3, 0.8, 0.3],
                     }}
                     transition={{ duration: 2.5, repeat: Infinity }}
                   />
@@ -211,15 +291,15 @@ const About = () => {
                   boxShadow: [
                     "0 4px 15px rgba(99, 102, 241, 0.3)",
                     "0 8px 25px rgba(99, 102, 241, 0.5)",
-                    "0 4px 15px rgba(99, 102, 241, 0.3)"
-                  ]
+                    "0 4px 15px rgba(99, 102, 241, 0.3)",
+                  ],
                 }}
                 transition={{
                   type: "spring",
                   stiffness: 400,
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  ease: "easeInOut",
                 }}
               >
                 <FiZap className="inline mr-1" />
@@ -274,13 +354,21 @@ const About = () => {
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  I'm a passionate Computer Science student currently pursuing my B.E. at AMC Engineering College in Bengaluru, India. With a strong foundation in both theoretical concepts and practical applications, I'm constantly exploring the intersection of technology and problem-solving.
+                  I'm an aspiring Data Scientist currently pursuing my B.E. in
+                  Computer Science with specialization in Data Science at AMC
+                  Engineering College in Bengaluru, India. I have a strong
+                  foundation in Python, Data Structures, and Object-Oriented
+                  Programming.
                 </motion.p>
                 <motion.p
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
-                  My journey in tech has been driven by curiosity and a desire to make a meaningful impact. Whether it's developing web applications, analyzing complex datasets, or leading team projects, I bring enthusiasm and attention to detail to everything I do.
+                  I have hands-on experience in full-stack development and data
+                  analysis, and I'm actively expanding my expertise in Flask,
+                  SQL, and Machine Learning through academic and open-source
+                  projects. I've proven my leadership through national
+                  volunteering and technical event organization.
                 </motion.p>
               </motion.div>
             </div>
@@ -302,7 +390,7 @@ const About = () => {
                   transition={{ delay: 0.7 + index * 0.1 }}
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 10px 30px rgba(99, 102, 241, 0.2)"
+                    boxShadow: "0 10px 30px rgba(99, 102, 241, 0.2)",
                   }}
                 >
                   <motion.div
@@ -335,7 +423,7 @@ const About = () => {
             >
               {[
                 { text: "View My Work", sectionId: "projects", icon: FiStar },
-                { text: "Get In Touch", sectionId: "contact", icon: FiHeart }
+                { text: "Get In Touch", sectionId: "contact", icon: FiHeart },
               ].map((button, index) => (
                 <motion.button
                   key={button.text}
@@ -343,25 +431,23 @@ const About = () => {
                     const element = document.getElementById(button.sectionId);
                     if (element) {
                       element.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                        inline: 'nearest'
+                        behavior: "smooth",
+                        block: "start",
+                        inline: "nearest",
                       });
                     }
                   }}
                   className="btn btn-primary hover-lift focus-ring group relative overflow-hidden"
                   whileHover={{
                     scale: 1.05,
-                    boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)"
+                    boxShadow: "0 10px 30px rgba(99, 102, 241, 0.4)",
                   }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.9 + index * 0.1 }}
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-primary-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  />
+                  <motion.div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <span className="relative z-10 flex items-center">
                     <button.icon className="mr-2 group-hover:animate-bounce" />
                     {button.text}
@@ -398,7 +484,7 @@ const About = () => {
                 className="glass-card p-6 text-center group hover-lift hover:scale-105 relative overflow-hidden"
                 whileHover={{
                   y: -8,
-                  boxShadow: "0 15px 40px rgba(99, 102, 241, 0.15)"
+                  boxShadow: "0 15px 40px rgba(99, 102, 241, 0.15)",
                 }}
               >
                 {/* Background gradient overlay */}
@@ -411,18 +497,18 @@ const About = () => {
                   whileHover={{
                     scale: 1.15,
                     rotate: 10,
-                    boxShadow: "0 8px 25px rgba(99, 102, 241, 0.3)"
+                    boxShadow: "0 8px 25px rgba(99, 102, 241, 0.3)",
                   }}
                   transition={{ type: "spring", stiffness: 400 }}
                 >
                   <motion.div
                     animate={{
-                      rotate: [0, 5, -5, 0]
+                      rotate: [0, 5, -5, 0],
                     }}
                     transition={{
                       duration: 3,
                       repeat: Infinity,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                   >
                     {highlight.icon}
@@ -448,6 +534,81 @@ const About = () => {
                   className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-primary-400/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   whileHover={{ rotate: 45 }}
                 />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-20"
+        >
+          <motion.h3
+            className="text-2xl md:text-3xl text-heading font-bold text-center mb-12 text-neutral-100"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5 }}
+          >
+            Leadership & Volunteering
+          </motion.h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 + index * 0.1 }}
+                className="glass-card p-6 group hover-lift hover:scale-105 relative overflow-hidden"
+                whileHover={{
+                  y: -8,
+                  boxShadow: "0 15px 40px rgba(99, 102, 241, 0.15)",
+                }}
+              >
+                {/* Background gradient overlay */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${exp.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                />
+
+                <div className="flex items-center mb-4 relative z-10">
+                  <motion.div
+                    className="p-3 bg-primary-900/30 rounded-xl mr-4 group-hover:bg-primary-800/50 transition-all duration-300"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                  >
+                    {exp.icon}
+                  </motion.div>
+                  <div>
+                    <h4 className="text-lg font-bold text-neutral-100 group-hover:text-primary-300 transition-colors">
+                      {exp.title}
+                    </h4>
+                    <p className="text-sm text-neutral-400">
+                      {exp.organization}
+                    </p>
+                    {exp.period && (
+                      <p className="text-xs text-primary-400 mt-1">
+                        {exp.period}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <ul className="space-y-2 relative z-10">
+                  {exp.points.map((point, pointIndex) => (
+                    <li
+                      key={pointIndex}
+                      className="text-sm text-neutral-400 leading-relaxed flex items-start"
+                    >
+                      <span className="text-primary-400 mr-2">•</span>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
