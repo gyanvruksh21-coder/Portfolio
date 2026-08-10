@@ -1,0 +1,28 @@
+{
+  "name": "Khushi Joshi Portfolio",
+  "short_name": "Khushi Joshi",
+  "description": "Portfolio of Khushi Kalpesh Joshi - Data Scientist & Web Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "developer", "data-science"],
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/preview.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ]
+}
